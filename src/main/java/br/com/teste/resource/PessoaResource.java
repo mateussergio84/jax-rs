@@ -9,6 +9,7 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -19,28 +20,20 @@ public class PessoaResource {
 
 	Service service = new Service();
 
-//	@GET
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String getIt() {
-//		service.crudservice();
-//		return "Got it!";
-//	}
-
-//	@Path("/Pessoa")
 	@POST
+	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Pessoa addUser(Pessoa pessoa) {
 		System.out.println("teste2");
-		service.crudservice();
+		//service.crudservice();
 		return service.insertUser(pessoa);
 
 	}
 
-	// @Path("/Pessoa")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Pessoa> getUser() throws SQLException {
-		service.crudservice();
+		//service.crudservice();
 		return service.getUser();
 	}
 
@@ -48,25 +41,26 @@ public class PessoaResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Pessoa> getUser(@PathParam("id") int id) throws SQLException {
-		service.crudservice();
+		//service.crudservice();
 		return service.getUserById(id);
 
 	}
 
-	@Path("/")
-	@POST
+	@Path("/update")
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Pessoa updateUser(Pessoa p) {
+		//service.crudservice();
 		return service.updatetUser(p);
-
 	}
 
-	@Path("/deleteUserById/{id}")
+	@Path("/delete/{id}")
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	public int deleteUser(@PathParam("id") int id) {
+		//service.crudservice();
 		return service.deletetUser(id);
-
 	}
-
+	
 }

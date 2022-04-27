@@ -13,7 +13,7 @@ public class Service {
 
 	Connection con;
 
-	public void crudservice() {
+	public void conect() {
 		try {
 			String url = String.format("jdbc:mysql://localhost:3306/api");
 			String uname = "root";
@@ -29,7 +29,7 @@ public class Service {
 
 	public Pessoa insertUser(Pessoa pessoa) {
 		String insert = "insert into pessoa(nome, idade) values(?,?) ";
-
+		conect();
 		try {
 			PreparedStatement ps = con.prepareStatement(insert);
 			ps.setString(1, pessoa.getNome());
@@ -43,7 +43,7 @@ public class Service {
 	}
 
 	public ArrayList<Pessoa> getUser() throws SQLException {
-
+		conect();
 		ArrayList<Pessoa> data = new ArrayList<Pessoa>();
 		String select = "select * from pessoa";
 		PreparedStatement ps = con.prepareStatement(select);
@@ -59,7 +59,7 @@ public class Service {
 	}
 
 	public ArrayList<Pessoa> getUserById(int id) throws SQLException {
-
+		conect();
 		ArrayList<Pessoa> data = new ArrayList<Pessoa>();
 		String select = "select * from pessoa where id =?";
 		PreparedStatement ps = con.prepareStatement(select);
@@ -69,7 +69,7 @@ public class Service {
 		while (rs.next()) {
 			Pessoa p = new Pessoa();
 			p.setId(rs.getInt("id"));
-			p.setName(rs.getString("nome")); // column name
+			p.setName(rs.getString("nome"));
 			p.setIdade(rs.getInt("idade"));
 			data.add(p);
 		}
@@ -77,7 +77,8 @@ public class Service {
 	}
 
 	public Pessoa updatetUser(Pessoa p) {
-		String insert = "update person set nome=? , idade=? where id =?";
+		conect();
+		String insert = "update pessoa set nome=? , idade=? where id =?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(insert);
@@ -95,19 +96,16 @@ public class Service {
 	}
 
 	public int deletetUser(int id) {
+		conect();
 		String insert = "delete from pessoa where id =?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(insert);
 			ps.setInt(1, id);
-
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e + "data insert unsuccess.");
 		}
-
 		return id;
-
 	}
-
 }
