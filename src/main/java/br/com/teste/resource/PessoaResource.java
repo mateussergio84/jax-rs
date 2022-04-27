@@ -24,9 +24,7 @@ public class PessoaResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Pessoa addUser(Pessoa pessoa) {
-		System.out.println("teste2");
 		return service.insertUser(pessoa);
-
 	}
 
 	@GET
