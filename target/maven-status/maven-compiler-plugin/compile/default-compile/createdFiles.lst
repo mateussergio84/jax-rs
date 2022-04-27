@@ -1,0 +1,5 @@
+br\com\teste\resource\PessoaResource.class
+br\com\teste\service\Service.class
+br\com\teste\model\Pessoa.class
+br\com\teste\MyResource.class
+br\com\teste\Main.class
