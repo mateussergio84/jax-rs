@@ -15,13 +15,12 @@ public class Service {
 
 	public void conect() {
 		try {
-			String url = String.format("jdbc:mysql://localhost:3306/api");
+			String url = "jdbc:mysql://localhost:3306/api";
 			String uname = "root";
 			String pwd = "";
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, uname, pwd);
-			System.out.println("Conectado");
 		} catch (Exception e) {
 			System.out.println(e + "data insert unsuccess.");
 		}
@@ -90,9 +89,7 @@ public class Service {
 		} catch (Exception e) {
 			System.out.println(e + "data insert unsuccess.");
 		}
-
 		return p;
-
 	}
 
 	public int deletetUser(int id) {

@@ -1,6 +1,9 @@
 package br.com.teste;
 
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -14,12 +17,11 @@ public class MyResource {
 	 * @return String that will be returned as a text/plain response.
 	 */
 
-//	@GET
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String getIt() {
-//		service.crudservice();
-//		return "Got it!";
-//	}
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getIt() {
+		return "Got it!";
+	}
 
 
 

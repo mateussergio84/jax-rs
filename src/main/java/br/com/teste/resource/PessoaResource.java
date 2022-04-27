@@ -25,7 +25,6 @@ public class PessoaResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Pessoa addUser(Pessoa pessoa) {
 		System.out.println("teste2");
-		//service.crudservice();
 		return service.insertUser(pessoa);
 
 	}
@@ -33,7 +32,6 @@ public class PessoaResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Pessoa> getUser() throws SQLException {
-		//service.crudservice();
 		return service.getUser();
 	}
 
@@ -41,7 +39,6 @@ public class PessoaResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Pessoa> getUser(@PathParam("id") int id) throws SQLException {
-		//service.crudservice();
 		return service.getUserById(id);
 
 	}
@@ -51,7 +48,6 @@ public class PessoaResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Pessoa updateUser(Pessoa p) {
-		//service.crudservice();
 		return service.updatetUser(p);
 	}
 
@@ -59,7 +55,6 @@ public class PessoaResource {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	public int deleteUser(@PathParam("id") int id) {
-		//service.crudservice();
 		return service.deletetUser(id);
 	}
 	
